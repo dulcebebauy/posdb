@@ -638,6 +638,10 @@ function changeQty(id, delta) {
 
 function removeFromCart(id) {
   carrito = carrito.filter(i => i.id !== id);
+  if(carrito.length == 0){
+    document.getElementById("discount").value = "";
+    document.getElementById("discountDesc").value = "";
+  }
   saveCart();
   updateTotal();
   applyFilters();
